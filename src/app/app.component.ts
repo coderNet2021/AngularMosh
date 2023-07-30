@@ -20,6 +20,15 @@ import { FavoriteChangedEventArguments } from './favorite/favorite.component';
 //   }
 // }
 
+// likecomponent
+// export class AppComponent{
+//   tweet ={
+//     body: '....',
+//     likesCount:10,
+//     isLiked :true
+//   }
+// }
+
 export class AppComponent{
   tweet ={
     body: '....',
