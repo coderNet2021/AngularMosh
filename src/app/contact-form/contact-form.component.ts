@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ContactFormComponent {
 
+  contactMethods =[
+    {id:1 , name:'Email'},
+    {id:2 , name:'Phone'},
+    {id:3 , name:'test3'},
+    {id:4 , name:'test4'}
+  ];
   log(x:any){
     console.log(x);
   }
