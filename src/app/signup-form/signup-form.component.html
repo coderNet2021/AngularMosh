@@ -16,6 +16,9 @@
         username must have at least
         {{username?.errors?.['minlength'].requiredLength}} characters
       </div>
+      <div *ngIf="username?.errors?.['cannotContainSpace']">
+        Username cannot contain spaces
+      </div>
     </div>
   </div>
   <div class="form-group">
