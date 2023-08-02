@@ -11,6 +11,7 @@ import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { UdemyCoursesFormComponent } from './udemy-courses-form/udemy-courses-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics-courses.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     LikeComponent,
     ZippyComponent,
     ContactFormComponent,
-    UdemyCoursesFormComponent
+    UdemyCoursesFormComponent,
+    UdemyTopicsCoursesComponent
   ],
   imports: [
     BrowserModule,
