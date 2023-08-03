@@ -14,6 +14,8 @@ export class ChangePasswordComponentComponent {
       oldPassword:['',Validators.required,PasswordValidators.validOldPassword],
       newPassword:['',Validators.required],
       confirmPassword:['',Validators.required]
+    }, {
+      validator : PasswordValidators.passwordShouldMatch
     });
   }
 
