@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitlecaseComponent } from './titlecase/titlecase.component';
@@ -13,6 +13,7 @@ import { UdemyCoursesFormComponent } from './udemy-courses-form/udemy-courses-fo
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics-courses.component';
 import { ChangePasswordComponentComponent } from './change-password-component/change-password-component.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { ChangePasswordComponentComponent } from './change-password-component/ch
     ContactFormComponent,
     UdemyCoursesFormComponent,
     UdemyTopicsCoursesComponent,
-    ChangePasswordComponentComponent
+    ChangePasswordComponentComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
