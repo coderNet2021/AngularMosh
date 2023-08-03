@@ -12,6 +12,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { UdemyCoursesFormComponent } from './udemy-courses-form/udemy-courses-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics-courses.component';
+import { ChangePasswordComponentComponent } from './change-password-component/change-password-component.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics
     ZippyComponent,
     ContactFormComponent,
     UdemyCoursesFormComponent,
-    UdemyTopicsCoursesComponent
+    UdemyTopicsCoursesComponent,
+    ChangePasswordComponentComponent
   ],
   imports: [
     BrowserModule,
