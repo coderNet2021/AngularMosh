@@ -26,6 +26,12 @@ httpClient.get<any[]>(this.url).subscribe((response)=>{
     });
   }
 
+  updatePost(post:Post){
+    this.httpClient.patch<Post>(this.url+'/'+post.id,{isRead:true}).subscribe((response)=>{
+      console.log(response);
+    });
+  }
+
 }
 
  interface Post{
