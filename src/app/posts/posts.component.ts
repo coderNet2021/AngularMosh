@@ -32,6 +32,14 @@ httpClient.get<any[]>(this.url).subscribe((response)=>{
     });
   }
 
+  deletePost(post:Post){
+    this.httpClient.delete<Post>(this.url+'/'+post.id).subscribe((response)=>{
+      //console.log(response);
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index,1);
+    });
+  }
+
 }
 
  interface Post{
