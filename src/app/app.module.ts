@@ -14,6 +14,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics-courses.component';
 import { ChangePasswordComponentComponent } from './change-password-component/change-password-component.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { PostsComponent } from './posts/posts.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
