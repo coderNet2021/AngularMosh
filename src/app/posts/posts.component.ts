@@ -30,9 +30,16 @@ export class PostsComponent implements OnInit {
       console.log(response);
       post.id=response.id;
       this.posts.splice(0,0,post);
-    },(error)=>{
-      console.log(error);
-      alert('an Unexpected error occured - post');
+    },(error:Response)=>{
+      if(error.status===400){//bad request
+
+        //this.form.setErrors(error.json());
+      }
+      else{
+
+        console.log(error);
+        alert('an Unexpected error occured - post');
+      }
     });
   }
 
@@ -50,9 +57,13 @@ export class PostsComponent implements OnInit {
       //console.log(response);
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    },(error)=>{
-      console.log(error);
-      alert('an Unexpected error occured - delete');
+    },(error: Response)=>{
+      if(error.status===404)//not found
+        alert('this post has already been deleted');
+      else{
+        console.log(error);
+        alert('an Unexpected error occured - delete');
+      }
     });
   }
 
