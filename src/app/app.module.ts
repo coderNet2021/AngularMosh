@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,8 @@ import { UdemyTopicsCoursesComponent } from './udemy-topics-courses/udemy-topics
 import { ChangePasswordComponentComponent } from './change-password-component/change-password-component.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { PostService } from './services/post.service';
     UdemyCoursesFormComponent,
     UdemyTopicsCoursesComponent,
     ChangePasswordComponentComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { PostService } from './services/post.service';
     HttpClientModule,
   ],
   providers: [
-    PostService
+    PostService,
+    {provide : ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,29 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class PostService extends DataService{
 
-  constructor(private httpClient :HttpClient ) { }
-
-  private url='http://jsonplaceholder.typicode.com/posts';
-
-  getPosts(){
-    return this.httpClient.get<any[]>(this.url);
+  constructor( httpClient :HttpClient ) {
+    super('http://jsonplaceholder.typicode.com/posts',httpClient);
   }
 
-  createPost(post:any){
-    return this.httpClient.post<any>(this.url,post)
-  }
+  //private url=
 
-  updatePost(post:any){
-    return this.httpClient.patch<any>(this.url+'/'+post.id,{isRead:true})
-  }
 
-  deletePost(id:any){
-return this.httpClient.delete<any>(this.url+'/'+id)
-  }
 
 }

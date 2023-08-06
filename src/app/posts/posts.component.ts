@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PostService } from '../post.service';
+import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
+import { BadInput } from '../common/bad-input';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -13,56 +16,52 @@ export class PostsComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.service.getPosts().subscribe((response)=>{
-      console.log(response);
-      this.posts=response;
+    this.service.getAll().subscribe((posts)=>{
+      console.log(posts);
+      this.posts=posts;
       console.log(this.posts);
-        },(error)=>{
-          console.log(error);
-          alert('an Unexpected error occured - get');
-        });
+        }
+        //here we deleted the error section , to let the error propagate the
+        );
   }
 
   createPost(inputTitle:HTMLInputElement){
     let post:Post = {id:0,title:inputTitle.value};
     inputTitle.value='';
-    this.service.createPost(post).subscribe((response)=>{
-      console.log(response);
-      post.id=response.id;
+    this.service.create(post).subscribe((newPost)=>{
+      console.log(newPost);
+      post.id=newPost.id;
       this.posts.splice(0,0,post);
-    },(error:Response)=>{
-      if(error.status===400){//bad request
+    },(error:AppError)=>{
+      if(error instanceof BadInput){//bad request
 
-        //this.form.setErrors(error.json());
+        //this.form.setErrors(error.originalError);
       }
       else{
 
-        console.log(error);
-        alert('an Unexpected error occured - post');
+       throw error;
       }
     });
   }
 
   updatePost(post:Post){
-    this.service.updatePost(post).subscribe((response)=>{
-      console.log(response);
-    },(error)=>{
-      console.log(error);
-      alert('an Unexpected error occured - update');
-    });
+    this.service.update(post).subscribe((updatedPost)=>{
+      console.log(updatedPost);
+    }
+    //delete the error block to hit the global error
+    );
   }
 
   deletePost(post:Post){
-    this.service.deletePost(post.id).subscribe((response)=>{
+    this.service.delete(post.id).subscribe(()=>{
       //console.log(response);
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    },(error: Response)=>{
-      if(error.status===404)//not found
+    },(error: AppError)=>{
+      if(error instanceof NotFoundError)//not found
         alert('this post has already been deleted');
       else{
-        console.log(error);
-        alert('an Unexpected error occured - delete');
+        throw error;
       }
     });
   }
