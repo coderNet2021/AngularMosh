@@ -1,1 +1,16 @@
-<p>github-followers works!</p>
+<div *ngFor="let follower of followers" class="card" style="width: 18rem">
+  <img
+    class="avatar card-img-top"
+    src="{{ follower.avatar_url }}"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ follower.login }}</h5>
+  </div>
+
+  <div class="card-body">
+    <a href="{{ follower.html_url }}" class="card-link">{{
+      follower.html_url
+    }}</a>
+  </div>
+</div>
