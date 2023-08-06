@@ -5,7 +5,9 @@
     alt="Card image cap"
   />
   <div class="card-body">
-    <h5 class="card-title">{{ follower.login }}</h5>
+    <h5 class="card-title">
+      <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
+    </h5>
   </div>
 
   <div class="card-body">
