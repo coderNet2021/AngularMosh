@@ -6,7 +6,9 @@
   />
   <div class="card-body">
     <h5 class="card-title">
-      <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
+      <a [routerLink]="['/followers', follower.id, follower.login]">{{
+        follower.login
+      }}</a>
     </h5>
   </div>
 
