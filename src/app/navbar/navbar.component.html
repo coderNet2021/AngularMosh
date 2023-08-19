@@ -17,6 +17,7 @@
         class="nav-item nav-link"
         routerLinkActive="active current"
         routerLink="/followers"
+        [queryParams]="{ page: 1, order: 'newest' }"
         >Followers
       </a>
       <a
