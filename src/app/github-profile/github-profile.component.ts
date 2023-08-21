@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-github-profile',
   templateUrl: './github-profile.component.html',
   styleUrls: ['./github-profile.component.css']
 })
-export class GithubProfileComponent implements OnInit{
-  constructor(private route : ActivatedRoute){
+export class GithubProfileComponent {
+  constructor(private route : Router){
 
   }
-  ngOnInit(): void {
-    this.route.paramMap.subscribe((params)=>{
-      console.log(params);
-      let id =params.get('id');
-      //in real scenario we want to send the id to get the profile like this :
-      // service.getProfile(id);
-      console.log(id);
-    });
+
+  submit(){
+    console.log('test here');
+   this.route.navigate(['/followers'],{
+    queryParams:{page:1,order:'newest'}
+   })
   }
 
 }
